@@ -75,7 +75,7 @@ struct mat4x4
     float m[4][4] = { {0} };
 };
 
-void MultiplyMatrixVector(vec3d &i, vec3d &o, mat4x4 &m)
+void MatrixCrossProduct(vec3d &i, vec3d &o, mat4x4 &m)
     {
         o.x = i.x * m.m[0][0] + i.y * m.m[1][0] + i.z * m.m[2][0] + m.m[3][0];
         o.y = i.x * m.m[0][1] + i.y * m.m[1][1] + i.z * m.m[2][1] + m.m[3][1];
@@ -226,14 +226,14 @@ int main(void)
             triangle triProjected, triTranslated, triRotatedZ, triRotatedZX;
     
             // Rotate in Z-Axis
-            MultiplyMatrixVector(tri.p[0], triRotatedZ.p[0], matRotZ);
-            MultiplyMatrixVector(tri.p[1], triRotatedZ.p[1], matRotZ);
-            MultiplyMatrixVector(tri.p[2], triRotatedZ.p[2], matRotZ);
+            MatrixCrossProduct(tri.p[0], triRotatedZ.p[0], matRotZ);
+            MatrixCrossProduct(tri.p[1], triRotatedZ.p[1], matRotZ);
+            MatrixCrossProduct(tri.p[2], triRotatedZ.p[2], matRotZ);
         
             // Rotate in X-Axis
-            MultiplyMatrixVector(triRotatedZ.p[0], triRotatedZX.p[0], matRotX);
-            MultiplyMatrixVector(triRotatedZ.p[1], triRotatedZX.p[1], matRotX);
-            MultiplyMatrixVector(triRotatedZ.p[2], triRotatedZX.p[2], matRotX);
+            MatrixCrossProduct(triRotatedZ.p[0], triRotatedZX.p[0], matRotX);
+            MatrixCrossProduct(triRotatedZ.p[1], triRotatedZX.p[1], matRotX);
+            MatrixCrossProduct(triRotatedZ.p[2], triRotatedZX.p[2], matRotX);
         
             // Offset into the screen
             triTranslated = triRotatedZX;
@@ -242,9 +242,9 @@ int main(void)
             triTranslated.p[2].z = triRotatedZX.p[2].z + 3.0f;
         
             // Project triangles from 3D --> 2D
-            MultiplyMatrixVector(triTranslated.p[0], triProjected.p[0], matProj);
-            MultiplyMatrixVector(triTranslated.p[1], triProjected.p[1], matProj);
-            MultiplyMatrixVector(triTranslated.p[2], triProjected.p[2], matProj);
+            MatrixCrossProduct(triTranslated.p[0], triProjected.p[0], matProj);
+            MatrixCrossProduct(triTranslated.p[1], triProjected.p[1], matProj);
+            MatrixCrossProduct(triTranslated.p[2], triProjected.p[2], matProj);
         
             // Scale into view
             // triProjected.p[0].x += 0.5f; triProjected.p[0].y += 0.5f;
