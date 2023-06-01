@@ -1,0 +1,24 @@
+Performing C SOURCE FILE Test _GLFW_HAS_64ASLR failed with the following output:
+Change Dir: C:/Users/ASUS/Documents/Program/C++/Rederer2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/MinGW/bin/mingw32-make.exe -f Makefile cmTC_73dc8/fast && C:/MinGW/bin/mingw32-make.exe  -f CMakeFiles\cmTC_73dc8.dir\build.make CMakeFiles/cmTC_73dc8.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/ASUS/Documents/Program/C++/Rederer2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_73dc8.dir/src.c.obj
+C:\MinGW\bin\gcc.exe -D_GLFW_HAS_64ASLR  -Wl,--high-entropy-va -o CMakeFiles\cmTC_73dc8.dir\src.c.obj -c C:\Users\ASUS\Documents\Program\C++\Rederer2\CMakeFiles\CMakeTmp\src.c
+Linking C executable cmTC_73dc8.exe
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_73dc8.dir\link.txt --verbose=1
+"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\cmTC_73dc8.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_73dc8.dir/objects.a @CMakeFiles\cmTC_73dc8.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -Wl,--high-entropy-va -Wl,--whole-archive CMakeFiles\cmTC_73dc8.dir/objects.a -Wl,--no-whole-archive -o cmTC_73dc8.exe -Wl,--out-implib,libcmTC_73dc8.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_73dc8.dir\linklibs.rsp
+c:/mingw/bin/../lib/gcc/x86_64-w64-mingw32/4.8.1/../../../../x86_64-w64-mingw32/bin/ld.exe: unrecognized option '--high-entropy-va'
+c:/mingw/bin/../lib/gcc/x86_64-w64-mingw32/4.8.1/../../../../x86_64-w64-mingw32/bin/ld.exe: use the --help option for usage information
+collect2.exe: error: ld returned 1 exit status
+CMakeFiles\cmTC_73dc8.dir\build.make:99: recipe for target 'cmTC_73dc8.exe' failed
+mingw32-make.exe[1]: *** [cmTC_73dc8.exe] Error 1
+mingw32-make.exe[1]: Leaving directory 'C:/Users/ASUS/Documents/Program/C++/Rederer2/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_73dc8/fast' failed
+mingw32-make.exe: *** [cmTC_73dc8/fast] Error 2
+
+
+Source file was:
+int main(void) { return 0; }
